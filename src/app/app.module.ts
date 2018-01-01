@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { HomeModule } from './home/home.module';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from './shared/index';
+import { AuthModule } from './auth/auth.module';
 
 const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: true });
 
@@ -21,6 +22,7 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: tru
     BrowserModule,
     SharedModule,
     HomeModule,
+    AuthModule,
     rootRouting
   ],
   providers: [],
