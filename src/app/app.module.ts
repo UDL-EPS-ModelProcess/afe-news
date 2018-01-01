@@ -1,14 +1,27 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ModuleWithProviders } from '@angular/core';
 
 import { AppComponent } from './app.component';
+import { FooterComponent } from './shared/layout/footer/footer.component';
+import { HeaderComponent } from './shared/layout/header/header.component';
+import { HomeComponent } from './home/home.component';
+import { HomeModule } from './home/home.module';
+import { RouterModule } from '@angular/router';
+import { SharedModule } from './shared/index';
+
+const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: true });
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FooterComponent,
+    HeaderComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    SharedModule,
+    HomeModule,
+    rootRouting
   ],
   providers: [],
   bootstrap: [AppComponent]
