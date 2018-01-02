@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { ListErrorsComponent } from './list-errors/list-errors.component';
 import { ShowAuthedDirective } from './show-authed.directive';
+import { ArticleMetaComponent } from './article-meta/article-meta.component';
 
 @NgModule({
   imports: [
@@ -16,7 +17,9 @@ import { ShowAuthedDirective } from './show-authed.directive';
   ],
   declarations: [
     ListErrorsComponent,
-    ShowAuthedDirective
+    ShowAuthedDirective,
+    ArticleMetaComponent,
+    ArticleMetaComponent
   ],
   exports: [
     CommonModule,
@@ -25,6 +28,7 @@ import { ShowAuthedDirective } from './show-authed.directive';
     HttpModule,
     ListErrorsComponent,
     ShowAuthedDirective,
+    ArticleMetaComponent,
     RouterModule
   ]
 })

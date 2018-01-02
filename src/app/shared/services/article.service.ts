@@ -11,19 +11,23 @@ export class ArticleService {
   ) { }
 
   get (slug): Observable<Article> {
-    return this.apiService.get('/articles/' + slug)
+    return this.apiService.get('/news/' + slug)
         .map(data => data.news);
   }
 
   save (article): Observable<Article> {
     // If we're updating an existing article
     if (article.slug) {
-      return this.apiService.put('/articles/' + article.slug, {news: article})
+      return this.apiService.put('/news/' + article.slug, {news: article})
                  .map(data => data.news);
     } else {
-      return this.apiService.post('/articles/', {news: article})
+      return this.apiService.post('/news/', {news: article})
              .map(data => data.news);
     }
+  }
+
+  destroy (slug) {
+    return this.apiService.delete('/news/' + slug);
   }
 
 }
