@@ -25,6 +25,8 @@ export class UserService {
   ) { }
 
   setAuth(user: User) {
+    // Save JWT sent from server in localstorage
+    this.jwtService.saveToken(user.token);
     // Set current user data into observable
     this.currentUserSubject.next(user);
     // Set isAuthenticated to true
@@ -67,6 +69,15 @@ export class UserService {
     this.currentUserSubject.next(new User());
     // Set auth status to false
     this.isAuthenticatedSubject.next(false);
+  }
+
+  updateUser(user): Observable<User> {
+    return this.apiService.put ('/user', {user})
+            .map(data => {
+              // Update the currentUser observable
+              this.currentUserSubject.next(data.user);
+              return data.user;
+            });
   }
 
 }
