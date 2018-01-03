@@ -19,6 +19,7 @@ import { SettingsModule } from './settings/settings.module';
 import { ProfileModule } from './profile/profile.module';
 import { EditorModule } from './editor/editor.module';
 import { ArticleModule } from './article/article.module';
+import { ApiPageModule } from './api-page/api-page.module';
 
 const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: true });
 
@@ -37,6 +38,7 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: tru
     ProfileModule,
     EditorModule,
     ArticleModule,
+    ApiPageModule,
     rootRouting
   ],
   providers: [
