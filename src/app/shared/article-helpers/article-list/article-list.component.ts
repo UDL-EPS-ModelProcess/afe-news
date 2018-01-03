@@ -46,7 +46,7 @@ export class ArticleListComponent implements OnInit {
      .subscribe(data => {
         this.loading = false;
         this.results = data.articles;
-        console.log (data);
+
         // Used from http://www.jstips.co/en/create-range-0...n-easily-using-one-line/
         this.totalPages = Array.from(new Array(Math.ceil(data.articlesCount / this.limit)), (val, index) => index + 1);
     });
