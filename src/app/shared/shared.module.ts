@@ -5,7 +5,9 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { ListErrorsComponent } from './list-errors/list-errors.component';
 import { ShowAuthedDirective } from './show-authed.directive';
-import { ArticleMetaComponent } from './article-meta/article-meta.component';
+import { ArticlePreviewComponent } from './article-helpers/article-preview/article-preview.component';
+import { ArticleListComponent } from './article-helpers/article-list/article-list.component';
+import { ArticleMetaComponent } from './article-helpers/index';
 
 @NgModule({
   imports: [
@@ -19,7 +21,10 @@ import { ArticleMetaComponent } from './article-meta/article-meta.component';
     ListErrorsComponent,
     ShowAuthedDirective,
     ArticleMetaComponent,
-    ArticleMetaComponent
+    ArticlePreviewComponent,
+    ArticleListComponent,
+    ArticlePreviewComponent,
+    ArticleListComponent
   ],
   exports: [
     CommonModule,
@@ -29,6 +34,8 @@ import { ArticleMetaComponent } from './article-meta/article-meta.component';
     ListErrorsComponent,
     ShowAuthedDirective,
     ArticleMetaComponent,
+    ArticleListComponent,
+    ArticlePreviewComponent,
     RouterModule
   ]
 })

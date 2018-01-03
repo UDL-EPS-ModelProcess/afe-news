@@ -3,6 +3,7 @@ import { ProfileComponent } from './profile.component';
 import { RouterModule } from '@angular/router';
 import { ProfileResolverService } from './profile-resolver.service';
 import { SharedModule } from '../shared';
+import { ProfileArticlesComponent } from './profile-articles/profile-articles.component';
 
 const profileRouting: ModuleWithProviders = RouterModule.forChild([
   {
@@ -10,7 +11,13 @@ const profileRouting: ModuleWithProviders = RouterModule.forChild([
     component: ProfileComponent,
     resolve: {
       profile: ProfileResolverService
-    }
+    },
+    children: [
+      {
+        path: '',
+        component: ProfileArticlesComponent
+      }
+    ]
   }
 ]);
 
@@ -20,7 +27,8 @@ const profileRouting: ModuleWithProviders = RouterModule.forChild([
     SharedModule
   ],
   declarations: [
-    ProfileComponent
+    ProfileComponent,
+    ProfileArticlesComponent
   ],
   providers: [
     ProfileResolverService

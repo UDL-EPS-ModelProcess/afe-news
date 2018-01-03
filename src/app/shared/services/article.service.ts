@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
+import { URLSearchParams } from '@angular/http';
 import { ApiService } from './api.service';
-import { Article } from '../models';
+import { Article, ArticleListConfig } from '../models';
 import { Observable } from 'rxjs/Observable';
 
 @Injectable()
@@ -28,6 +29,18 @@ export class ArticleService {
 
   destroy (slug) {
     return this.apiService.delete('/news/' + slug);
+  }
+
+  query(config: ArticleListConfig): Observable<{articles: Article[], articlesCount: number}> {
+    // Convert any filters over to Angular's URLSearchParams
+    const params = new URLSearchParams();
+
+    Object.keys(config.filters).forEach((key) => {
+      params.set(key, config.filters[key]);
+    });
+
+    return this.apiService.get( '/news' + ((config.type === 'feed') ? '/feed' : ''), params)
+               .map(data => data);
   }
 
 }
