@@ -1,0 +1,7 @@
+.api-preview{
+    margin: 0 0 1rem 2.5rem;
+}
+
+.api-preview > h2 {
+    padding-top: 20px;
+}
