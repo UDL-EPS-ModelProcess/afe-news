@@ -54,6 +54,12 @@
         <td>TOKEN Optional</td>
         <td>Get the user profile information from the passed user in the url</td>
       </tr>
+      <tr>
+        <td>/news</td>
+        <td>GET</td>
+        <td>TOKEN Optional</td>
+        <td>Obtain all news from the news stored in the platform.</td>
+      </tr>
     </tbody>
   </table>
 </div>
@@ -66,10 +72,11 @@
   <p>For registering a user, we need to pass for the API a user with the username, email and password:</p> 
   <pre>
       <code class="json">
-        "user":
+        "user": {{'{'}}
           "email":"rick@afenews.io", 
           "password":"rick", 
           "username":"rick"
+      {{'}'}}
       </code>
   </pre>
 
@@ -78,10 +85,11 @@
   </p>
   <pre>
       <code class="json">
-          "user": 
+          "user": {{'{'}}
             "username": "rick",
             "email": "rick@afenews.io",
             "token": "SPECIFIC TOKEN HERE"
+        {{'}'}}
       </code>
   </pre>
   <h3>Login user</h3>
@@ -90,9 +98,10 @@
   </p>
   <pre>
     <code class="json">
-        "user":
+        "user":{{'{'}}
           "email":"rick@afenews.io", 
           "password":"rick"
+      {{'}'}}
     </code>
   </pre>
   <p>
@@ -101,10 +110,11 @@
   </p>
   <pre>
       <code class="json">
-          "user": 
+          "user": {{'{'}}
             "username": "rick",
             "email": "rick@afenews.io",
             "token": "SPECIFIC TOKEN HERE"
+        {{'}'}}
       </code>
   </pre>
   <h3>Get Current User</h3>
@@ -115,12 +125,13 @@
   </p>
   <pre>
       <code class="json">
-          "user": 
+          "user": {{'{'}}
             "username": "rick",
             "email": "rick@afenews.io",
             "token": "SPECIFIC TOKEN HERE",
             "bio": "",
             "image": ""
+        {{'}'}}
       </code>
   </pre>
   <h3>Update User Information</h3>
@@ -132,11 +143,12 @@
   </p>
   <pre>
       <code class="json">
-          "user":
+          "user": {{'{'}}
             "bio":"My bio 3",
             "email". "rick_new@afe.io"
             "image":"http://rick.io",
             "password": "rick_new"
+        {{'}'}}
       </code>
   </pre>
   <h3>Get User Profile</h3>
@@ -150,10 +162,36 @@
   </p>
   <pre>
     <code class="json">
-        "profile": 
+        "profile": {{'{'}}
           "username": "rick",
           "bio": "My bio 4",
           "image": "http://rick.io"
+     {{'}'}}
+    </code>
+  </pre>
+  <h3>Obtaining all news</h3>
+  <p>
+    This function is aimed at retrieving all news stored in the platform. As a result, we obtain a 
+    JSON array with the corresponding news. Moreover, the API also returns the news count to facilitate
+    pagination. 
+  </p>
+  <pre>
+    <code class="json">
+        "articles": [
+        {{'{'}}
+            "slug": "afghanistan-gets-in-hurt-ywarpv",
+            "title": "Afghanistan gets in hurt",
+            "description": "war in afganistán",
+            "body": "# Afganistan war\nThe afganistán war suffers and gets lots of hurts. ",
+            "type": "International",
+            "author": {{'{'}}'
+                "username": "aolite",
+                "bio": "My bio 4",
+                "image": "http://aolite.io"
+                {{'}'}}'
+        {{'}'}}
+    ],
+    "articlesCount": 1
     </code>
   </pre>
 
