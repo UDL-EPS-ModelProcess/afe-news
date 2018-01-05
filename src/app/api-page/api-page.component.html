@@ -36,6 +36,18 @@
         <td>Open</td>
         <td>Login a user into the API (check if a user introduce a correct login)</td>
       </tr>
+      <tr>
+        <td>/user</td>
+        <td>GET</td>
+        <td>TOKEN Required</td>
+        <td>Get the user information defined by teh corresponding token.</td>
+      </tr>
+      <tr>
+        <td>/user</td>
+        <td>PUT</td>
+        <td>TOKEN Required</td>
+        <td>Update user profile inforamtion.</td>
+      </tr>
     </tbody>
   </table>
 </div>
@@ -89,5 +101,37 @@
             "token": "SPECIFIC TOKEN HERE"
       </code>
   </pre>
+  <h3>Get Current User</h3>
+  <p>
+    This resource permit to obtain the user information defined by a corresponding token. This function
+    do not have request body. As a response of this function, we obtain the corresponding user information
+    associated to the passed token. 
+  </p>
+  <pre>
+      <code class="json">
+          "user": 
+            "username": "rick",
+            "email": "rick@afenews.io",
+            "token": "SPECIFIC TOKEN HERE",
+            "bio": "",
+            "image": ""
+      </code>
+  </pre>
+  <h3>Update User Information</h3>
+  <p>
+    This function is aimed at updating user profile information such as email, password, image or bio.
+    For that, we could pass in the request operation all this parameters. If we omit some of these 
+    parameters, it won't be considered for the update. Moreover, the user to being updated will be defined
+    thoughout the token passed in the request function.
+  </p>
+  <pre>
+      <code class="json">
+          "user":
+            "bio":"My bio 3",
+            "email". "rick_new@afe.io"
+            "image":"http://rick.io",
+            "password": "rick_new"
+      </code>
+    </pre>
 </div>
 
