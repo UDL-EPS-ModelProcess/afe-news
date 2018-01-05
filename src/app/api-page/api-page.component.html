@@ -78,6 +78,18 @@
         <td>TOKEN required</td>
         <td>Create an article</td>
       </tr>
+      <tr>
+          <td>/news/{{'{'}}slug{{'}'}}</td>
+          <td>PUT</td>
+          <td>Token Optional</td>
+          <td>Update article information</td>
+      </tr>
+      <tr>
+          <td>/news/{{'{'}}slug{{'}'}}</td>
+          <td>DELETE</td>
+          <td>Token required</td>
+          <td>Delete an article</td>
+      </tr>
     </tbody>
   </table>
 </div>
@@ -260,6 +272,79 @@
     </code>
   </pre>
   <h3>Create an article</h3>
-  
+  <p>
+    Create an article into the platform. In order to enable the creation, we need to pass to the API
+    the following information into the body: 
+  </p>
+  <pre>
+    <code class="json">
+        "news":{{'{'}}
+          "title":"Asensio is the new gold boy", 
+          "description":"Asensio wins the goldboy", 
+          "body":"Asensio wins the goldboy.", 
+          "type":"Sports"
+      {{'}'}}
+    </code>
+  </pre>
+  <p>
+    If everithing goes fine, the API responds with the fully defined article inside the platform: 
+  </p>
+  <pre>
+    <code class="json">
+        "news": {{'{'}}
+          "slug": "asensio-is-the-new-gold-boy-v7zbym",
+          "title": "Asensio is the new gold boy",
+          "description": "Asensio wins the goldboy",
+          "body": "Asensio wins the goldboy.",
+          "type": "Sports",
+          "author": {{'{'}}
+              "username": "aolite",
+              "bio": "My bio 4",
+              "image": "http://aolite.io"
+        {{'}'}}
+    {{'}'}}
+    </code>
+  </pre>
+  <h3>Update Article inforamtion</h3>
+  <p>
+    This function permit to update article information. For that, we need to use the slug of 
+    the article passed as a URL parameter. In the body of the request, we cold pass the folowing
+    parameters: 
+  </p>
+  <pre>
+    <code class="json">
+        "news": {{'{'}}
+          "title": "New title",
+          "description": "new description",
+          "body": "new body",
+          "type": "new type"
+      {{'}'}}
+    </code>
+  </pre>
+  <p>
+    If the update goes well, the article information is returned in the response:
+  </p>
+  <pre>
+    <code class="json">
+        "news": {{'{'}}
+          "slug": "asensio-is-the-new-gold-boy-v7zbym",
+          "title": "Asensio is the new gold boy",
+          "description": "Asensio wins the goldboy",
+          "body": "Asensio wins the goldeb boy in abu dabi",
+          "type": "Sports",
+          "author": {{'{'}}
+              "username": "aolite",
+              "bio": "My bio 4",
+              "image": "http://aolite.io"
+        {{'}'}}
+      {{'}'}}
+    </code>
+  </pre>
+  <h3>Delete an Article</h3>
+  <p>
+    Remove an article from the platform. For removing articles, it is compulsory to have a token.
+    The token have to correspond with the author of the article to e removed. If everything goes well, 
+    the API should respond with no content code (204) 
+  </p>
 </div>
 
