@@ -60,6 +60,24 @@
         <td>TOKEN Optional</td>
         <td>Obtain all news from the news stored in the platform.</td>
       </tr>
+      <tr>
+        <td>/news?author={{'{'}}uname{{'}'}}</td>
+        <td>GET</td>
+        <td>TOKEN Optional</td>
+        <td>Obtain all articles defined by an author.</td>
+      </tr>
+      <tr>
+        <td>/news/{{'{'}}slug{{'}'}}</td>
+        <td>GET</td>
+        <td>Token Optional</td>
+        <td>Obtain an article based on the slug (id)</td>
+      </tr>
+      <tr>
+        <td>/news</td>
+        <td>POST</td>
+        <td>TOKEN required</td>
+        <td>Create an article</td>
+      </tr>
     </tbody>
   </table>
 </div>
@@ -195,5 +213,53 @@
     </code>
   </pre>
 
+  <h3>Get all articles defined by an author</h3>
+  <p>
+    This function permit to have all articles corresponding the username passed in the URL as 
+    a parameter. As a result, we obtain the article information: 
+  </p>
+  <pre>
+      <code class="json">
+          "articles": [
+          {{'{'}}
+              "slug": "afghanistan-gets-in-hurt-ywarpv",
+              "title": "Afghanistan gets in hurt",
+              "description": "war in afganistán",
+              "body": "# Afganistan war\nThe afganistán war suffers and gets lots of hurts. ",
+              "type": "International",
+              "author": {{'{'}}'
+                  "username": "aolite",
+                  "bio": "My bio 4",
+                  "image": "http://aolite.io"
+                  {{'}'}}'
+          {{'}'}}
+      ],
+      "articlesCount": 1
+      </code>
+  </pre>
+  <h3>Getting news by slug (id)</h3>
+  <p>
+    This function permits to obtain articles by a defined slug. The slug is an string to identify 
+    an article. This mentioned string is passed as a URL paramter. As a result, the function returns
+    the fully article information of teh corresponding news. 
+  </p>
+  <pre>
+    <code class="json">
+        "news": {{'{'}}
+          "slug": "asensio-is-the-new-gold-boy-2jm1yg",
+          "title": "Asensio is the new gold boy",
+          "description": "Asensio wins the goldboy",
+          "body": "Asensio wins the goldboy.",
+          "type": "Sports",
+          "author": {{'{'}}
+              "username": "aolite",
+              "bio": "My bio 4",
+              "image": "http://aolite.io"
+          {{'}'}}
+      {{'}'}}
+    </code>
+  </pre>
+  <h3>Create an article</h3>
+  
 </div>
 
