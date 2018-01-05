@@ -40,13 +40,19 @@
         <td>/user</td>
         <td>GET</td>
         <td>TOKEN Required</td>
-        <td>Get the user information defined by teh corresponding token.</td>
+        <td>Get the user information defined by the corresponding token.</td>
       </tr>
       <tr>
         <td>/user</td>
         <td>PUT</td>
         <td>TOKEN Required</td>
         <td>Update user profile inforamtion.</td>
+      </tr>
+      <tr>
+        <td>/profile/{{'{'}}uname{{'}'}}</td>
+        <td>GET</td>
+        <td>TOKEN Optional</td>
+        <td>Get the user profile information from the passed user in the url</td>
       </tr>
     </tbody>
   </table>
@@ -132,6 +138,24 @@
             "image":"http://rick.io",
             "password": "rick_new"
       </code>
-    </pre>
+  </pre>
+  <h3>Get User Profile</h3>
+  <p>
+    This functions returns the user information. This function is useful for getting the author for
+    an specific new, for example. For this function do not require a body. The user is required as URL
+    parameter. 
+  </p>
+  <p>
+    As a result, we obtaint the user profile information as follows: 
+  </p>
+  <pre>
+    <code class="json">
+        "profile": 
+          "username": "rick",
+          "bio": "My bio 4",
+          "image": "http://rick.io"
+    </code>
+  </pre>
+
 </div>
 
