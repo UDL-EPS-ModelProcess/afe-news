@@ -14,6 +14,80 @@
     the information stored. Indeed, the following table show us the operations and desirable results that our API 
     offers: 
   </p>
-  
+  <table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>URL</th>
+            <th>Operation</th>
+            <th>Acess</th>
+            <th>Description</th>
+          </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>/users</td>
+        <td>PUT</td>
+        <td>Open</td>
+        <td>Register a user in the application. As a result, we obtain a user inforamtion including the token </td>
+      </tr>
+      <tr>
+        <td>/users/login</td>
+        <td>POST</td>
+        <td>Open</td>
+        <td>Login a user into the API (check if a user introduce a correct login)</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="api-preview">
+  <h2>Detail API Operations</h2>
+  <p>
+    This part of the documentation is focused on showing the inputs and outputs of each API operation. 
+  </p>
+  <h3>Register a User</h3>
+  <p>For registering a user, we need to pass for the API a user with the username, email and password:</p> 
+  <pre>
+      <code class="json">
+        "user":
+          "email":"rick@afenews.io", 
+          "password":"rick", 
+          "username":"rick"
+      </code>
+  </pre>
+
+  <p>
+    As a result, we obtain the complete user informatio including the token for being used in the application: 
+  </p>
+  <pre>
+      <code class="json">
+          "user": 
+            "username": "rick",
+            "email": "rick@afenews.io",
+            "token": "SPECIFIC TOKEN HERE"
+      </code>
+  </pre>
+  <h3>Login user</h3>
+  <p>
+    In order to login a user into the application, we need to pass a user and password: 
+  </p>
+  <pre>
+    <code class="json">
+        "user":
+          "email":"rick@afenews.io", 
+          "password":"rick"
+    </code>
+  </pre>
+  <p>
+    As a response of the call, the application shows the same user information as 
+    the register if everithing goes fine
+  </p>
+  <pre>
+      <code class="json">
+          "user": 
+            "username": "rick",
+            "email": "rick@afenews.io",
+            "token": "SPECIFIC TOKEN HERE"
+      </code>
+  </pre>
 </div>
 

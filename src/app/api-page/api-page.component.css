@@ -1,7 +1,7 @@
 .api-preview{
-    margin: 0 0 1rem 2.5rem;
+    margin: 0 2.5rem 1rem 2.5rem;
 }
 
-.api-preview > h2 {
+.api-preview > h2,h3 {
     padding-top: 20px;
 }
