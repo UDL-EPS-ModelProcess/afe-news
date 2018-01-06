@@ -17,7 +17,7 @@ export class CategoryService {
 
   get (name): Observable<Category> {
     return this.apiService.get('/category/' + name)
-        .map(data => data.news);
+        .map(data => data.category);
   }
 
 }

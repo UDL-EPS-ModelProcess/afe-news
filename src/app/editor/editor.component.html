@@ -31,10 +31,13 @@
             </fieldset>
 
             <fieldset class="form-group">
-              <input class="form-control form-control-lg"
+              <select name="type" class="form-control form-control-lg" formControlName="type">
+                <option *ngFor="let category of categories" [ngValue]="category.name">{{category.name}}</option>
+              </select>
+              <!--<input class="form-control form-control-lg"
                 formControlName="type"
                 type="text"
-                placeholder="Article Type" />
+                placeholder="Article Type" />-->
             </fieldset>
 
             <button class="btn btn-lg pull-xs-right btn-primary" type="button" (click)="submitForm()">
