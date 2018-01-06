@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ArticleService, Article } from '../shared';
+import { ArticleService, Article, CategoryService, Category } from '../shared';
 import { Router, ActivatedRoute} from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
@@ -11,12 +11,14 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class EditorComponent implements OnInit {
 
   article: Article = new Article ();
+  categories: Category[];
   articleForm: FormGroup;
   errors: Object = {};
   isSubmitting  = false;
 
   constructor(
     private articleService: ArticleService,
+    private categoryService: CategoryService,
     private route: ActivatedRoute,
     private router: Router,
     private fb: FormBuilder
@@ -31,6 +33,12 @@ export class EditorComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.categoryService.getAll().subscribe(
+      data => {
+        this.categories = data;
+        console.log(this.categories);
+      }
+    );
     // If there's an article prefetched, load it
     this.route.data.subscribe(
       (data: {article: Article}) => {
