@@ -45,7 +45,6 @@ export class EditorComponent implements OnInit {
         if (data.article) {
           this.article = data.article;
           this.articleForm.patchValue(data.article);
-          console.log(data.article.type['name']);
           this.categoryService.get(data.article.type['name']).subscribe(
             cat => {
               this.articleForm.controls['type'].setValue(cat.name, {onlySelf: true});
