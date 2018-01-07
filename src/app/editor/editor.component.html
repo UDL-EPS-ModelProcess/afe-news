@@ -32,6 +32,7 @@
 
             <fieldset class="form-group">
               <select name="type" class="form-control form-control-lg" formControlName="type">
+                <option value="">--Select a country--</option>
                 <option *ngFor="let category of categories" [ngValue]="category.name">{{category.name}}</option>
               </select>
               <!--<input class="form-control form-control-lg"
